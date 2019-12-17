@@ -1,0 +1,16 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0px;
+  margin: L 0px;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+}
