@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
-import { ResourceStoreContext } from "../store";
+import { PlayerStoreContext } from "../store";
 
 import Display from "./UI/Display";
 
@@ -9,7 +9,6 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   aling-items: center;
-  padding: 60px;
   background: ${props => props.theme.colors.secondary};
 
   div {
@@ -17,16 +16,18 @@ const Container = styled.div`
   }
 `;
 
-const Header: React.FC = observer(() => {
-  const resourceStore = useContext(ResourceStoreContext);
+const Footer: React.FC = observer(() => {
+  const playerStore = useContext(PlayerStoreContext);
 
   return (
     <Container>
-      <Display label="Planeta" value={resourceStore.planet} />
-      <Display label="Metal" value={resourceStore.metal} />
-      <Display label="Madera" value={resourceStore.wood} />
+      <Display
+        label="Salud"
+        value={playerStore.health > 0 ? playerStore.health : "Estás muerto"}
+      />
+      <Display label="Dinero" value={playerStore.budget} />
     </Container>
   );
 });
 
-export default Header;
+export default Footer;

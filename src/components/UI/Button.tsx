@@ -14,8 +14,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button: React.FC = props => {
+const Button = (props: any) => {
   return <StyledButton {...props} />;
 };
 
-export default StyledButton;
+export default Button;
